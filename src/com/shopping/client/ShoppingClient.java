@@ -5,7 +5,7 @@ import com.shopping.item.ShoppingItem;
 import com.shopping.visitor.ShoppingItemVisitor;
 import com.shopping.visitor.ShoppingItemVisitorImpl;
 
-/*  Shopping Client class is used to calculate the total cost of all the items
+/*  Shopping Client is the entry class that is used to calculate the total cost of all the items
  * in the fruit basket
  */
 
@@ -24,6 +24,6 @@ public class ShoppingClient {
             totalCost = totalCost+ item.accept(visitor);
         }
 	        System.out.println("Total Cost = "+totalCost);
-	    }
+	}
 }
 
