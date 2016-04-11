@@ -4,7 +4,9 @@ package com.shopping.fruit;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.mockito.Mockito;
 
+import com.shopping.visitor.ShoppingItemVisitor;
 import com.shopping.visitor.ShoppingItemVisitorImpl;
 
 public class FruitTest {
@@ -35,7 +37,8 @@ public class FruitTest {
 	@Test
 	public void testCost() {
 		Fruit fruit = new Fruit("Apples", 10,10);
-		ShoppingItemVisitorImpl visitor = new ShoppingItemVisitorImpl();
-		assertEquals(100,fruit.accept(visitor),0.001);
+		ShoppingItemVisitor mockShoppingVisitor = Mockito.mock(ShoppingItemVisitor.class);
+		Mockito.when(mockShoppingVisitor.visit(fruit)).thenReturn(100f);
+		assertEquals(100,fruit.accept(mockShoppingVisitor),0.001);
 	}
 }
