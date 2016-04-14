@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import com.shopping.visitor.ShoppingItemVisitor;
-import com.shopping.visitor.ShoppingItemVisitorImpl;
 
 public class FruitTest {
 
