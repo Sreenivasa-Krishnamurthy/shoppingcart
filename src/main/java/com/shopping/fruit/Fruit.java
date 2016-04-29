@@ -12,9 +12,9 @@ import com.shopping.visitor.ShoppingItemVisitor;
  */
 
 public class Fruit implements ShoppingItem{
-	private String name;
-	private BigDecimal price;
-	private BigDecimal quantity;
+	private final String name;
+	private final BigDecimal price;
+	private final BigDecimal quantity;
 	
 	public Fruit(String name, BigDecimal price, BigDecimal quantity) {
 		
