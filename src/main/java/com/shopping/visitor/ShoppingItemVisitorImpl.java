@@ -1,11 +1,13 @@
 package com.shopping.visitor;
+import java.math.BigDecimal;
+
 import com.shopping.fruit.Fruit;
 
 public class ShoppingItemVisitorImpl implements ShoppingItemVisitor {
 
 	@Override
-	public float visit(Fruit fruit) {
-		float cost= fruit.getPrice() * fruit.getQuantity();
+	public BigDecimal visit(Fruit fruit) {
+		BigDecimal cost= fruit.getPrice().multiply(fruit.getQuantity());
 		System.out.println(fruit.getName() + " Cost = "+ cost);
 		return cost;
 	}

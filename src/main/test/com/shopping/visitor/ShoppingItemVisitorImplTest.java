@@ -1,6 +1,9 @@
 package com.shopping.visitor;
 
 import static org.junit.Assert.*;
+
+import java.math.BigDecimal;
+
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -12,12 +15,12 @@ public class ShoppingItemVisitorImplTest {
 	public void testCost() {
 	
 		Fruit fruit = Mockito.mock(Fruit.class);
-		Mockito.when(fruit.getQuantity()).thenReturn(10f);
-		Mockito.when(fruit.getPrice()).thenReturn(10f);
+		Mockito.when(fruit.getQuantity()).thenReturn(new BigDecimal(10));
+		Mockito.when(fruit.getPrice()).thenReturn(new BigDecimal(10));
 		Mockito.when(fruit.getName()).thenReturn("Apples");
 		
 		ShoppingItemVisitorImpl visitor = new ShoppingItemVisitorImpl();
-		assertEquals(100,visitor.visit(fruit),0.001);
+		assertEquals(new BigDecimal(100),visitor.visit(fruit));
 	}
 
 }

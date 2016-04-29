@@ -1,5 +1,7 @@
 package com.shopping.fruit;
 
+import java.math.BigDecimal;
+
 import com.shopping.item.ShoppingItem;
 import com.shopping.visitor.ShoppingItemVisitor;
 
@@ -11,16 +13,16 @@ import com.shopping.visitor.ShoppingItemVisitor;
 
 public class Fruit implements ShoppingItem{
 	private String name;
-	private float price;
-	private float quantity;
+	private BigDecimal price;
+	private BigDecimal quantity;
 	
-	public Fruit(String name, float price, float quantity) {
+	public Fruit(String name, BigDecimal price, BigDecimal quantity) {
 		
-		if ( price <= 0) {
+		if ( price.compareTo(BigDecimal.ZERO) <= 0) {
 			throw new IllegalArgumentException("Price cannot be negative or zero");
 		}
 		
-		if (quantity <= 0) {
+		if (quantity.compareTo(BigDecimal.ZERO) <= 0) {
 			throw new IllegalArgumentException("Quantity cannot be negative or zero");
 		}
 		
@@ -34,16 +36,16 @@ public class Fruit implements ShoppingItem{
 		return name;
 	}
 	
-	public float getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 	
-	public float getQuantity() {
+	public BigDecimal getQuantity() {
 		return quantity;
 	}
 
 	@Override
-	public float accept(ShoppingItemVisitor visitor) {
+	public BigDecimal accept(ShoppingItemVisitor visitor) {
 		return visitor.visit(this);
 	}
 

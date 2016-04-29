@@ -1,7 +1,9 @@
 package com.shopping.item;
 
+import java.math.BigDecimal;
+
 import com.shopping.visitor.ShoppingItemVisitor;
 
 public interface ShoppingItem {
-	float accept(ShoppingItemVisitor visitor);
+	BigDecimal accept(ShoppingItemVisitor visitor);
 }
